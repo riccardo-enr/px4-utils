@@ -1,0 +1,8 @@
+[project]
+name = "px4-utils"
+version = "0.1.0"
+description = "MAVLink debug scripts for checking RC/arm status on the PX4 MPPI fork"
+requires-python = ">=3.11"
+dependencies = [
+    "pymavlink>=2.4.49",
+]
