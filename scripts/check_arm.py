@@ -6,7 +6,6 @@ any failures via STATUSTEXT, without actually arming the vehicle.
 import sys
 import time
 from typing import cast
-from pymavlink import mavutil
 
 from mav_debug import (
     log_message,
@@ -16,6 +15,7 @@ from mav_debug import (
     send_command,
     wait_heartbeat_filtered,
 )
+from pymavlink import mavutil
 
 CONN = sys.argv[1] if len(sys.argv) > 1 else "udp:0.0.0.0:14550"
 TIMEOUT = 5

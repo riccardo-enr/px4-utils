@@ -8,9 +8,9 @@ waiting, then reports the moment a genuine link comes alive.
 import sys
 import time
 from typing import cast
-from pymavlink import mavutil
 
 from mav_debug import print_source_addresses, wait_heartbeat_filtered
+from pymavlink import mavutil
 
 CONN = sys.argv[1] if len(sys.argv) > 1 else "udp:0.0.0.0:14550"
 POLL_TIMEOUT = 2  # seconds per attempt, so we can print progress dots

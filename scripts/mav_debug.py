@@ -6,6 +6,7 @@ comes over the link, not just the ones a given script cares about.
 """
 import select
 import time
+
 from pymavlink import mavutil
 
 EXCLUDE_HOSTS_DEFAULT = ("127.0.0.1", "::1")
@@ -31,7 +32,7 @@ def send_command(mav, t0, command_name, target_system, target_component, command
     mav.mav.command_long_send(target_system, target_component, command_id, 0, *params)
 
 
-def recv_filtered(mav, timeout=1, msg_type=None, exclude_hosts=EXCLUDE_HOSTS_DEFAULT):
+def recv_filtered(mav, timeout: float = 1, msg_type=None, exclude_hosts=EXCLUDE_HOSTS_DEFAULT):
     """Like mav.recv_match(type=msg_type, blocking=True, timeout=timeout), but
     reads raw UDP datagrams directly and drops any whose source host is in
     exclude_hosts BEFORE parsing -- so a local SITL instance sharing the same
